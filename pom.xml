@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>restapp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Restapp</name>
+    <description>Restapp</description>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+<!--    <servers>-->
+<!--        <server>-->
+<!--            <id>registry.hub.docker.com</id>-->
+<!--            <username><DockerHub Username></username>-->
+<!--            <password><DockerHub Password></password>-->
+<!--        </server>-->
+<!--    </servers>-->
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>com.google.cloud.tools</groupId>-->
+<!--                <artifactId>jib-maven-plugin</artifactId>-->
+<!--                <version>2.5.0</version>-->
+<!--                <configuration>-->
+<!--                    <to>-->
+<!--                        <image>docker.io/podobuev/kuber</image>-->
+<!--                        <auth>-->
+<!--                            <username>podobuev@gmail.com</username>-->
+<!--                            <password>Cgfhnfr254!</password>-->
+<!--                        </auth>-->
+<!--                    </to>-->
+<!--                </configuration>-->
+
+<!--            </plugin>-->
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.5.0</version>
+                <configuration>
+                    <to>
+                        <image>docker.io/podobuev/kuber${project.artifactId}:${project.version}</image>
+                    </to>
+<!--                    <allowInsecureRegistries>true</allowInsecureRegistries>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+
+</project>
