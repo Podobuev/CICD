@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>restapp</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>Restapp</name>
     <description>Restapp</description>
     <properties>
         <java.version>11</java.version>
     </properties>
 
-<!--    <servers>-->
-<!--        <server>-->
-<!--            <id>registry.hub.docker.com</id>-->
-<!--            <username><DockerHub Username></username>-->
-<!--            <password><DockerHub Password></password>-->
-<!--        </server>-->
-<!--    </servers>-->
+    <scm>
+        <url>https://github.com/Podobuev/CICD.git</url> <!-- URL HTTP de clone do projeto -->
+        <connection>scm:git:https://github.com/Podobuev/CICD.git</connection> <!-- URL HTTP de clone do projeto -->
+        <developerConnection>scm:git:https://github.com/Podobuev/CICD.git</developerConnection> <!-- URL HTTP de clone do projeto -->
+        <tag>0.0.3</tag>
+    </scm>
 
 
     <dependencies>
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.2.0</version>
+            <type>maven-plugin</type>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -59,21 +64,17 @@
                 </configuration>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>com.google.cloud.tools</groupId>-->
-<!--                <artifactId>jib-maven-plugin</artifactId>-->
-<!--                <version>2.5.0</version>-->
-<!--                <configuration>-->
-<!--                    <to>-->
-<!--                        <image>docker.io/podobuev/kuber</image>-->
-<!--                        <auth>-->
-<!--                            <username>podobuev@gmail.com</username>-->
-<!--                            <password>Cgfhnfr254!</password>-->
-<!--                        </auth>-->
-<!--                    </to>-->
-<!--                </configuration>-->
-
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
