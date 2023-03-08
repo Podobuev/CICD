@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>restapp</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.5</version>
     <name>Restapp</name>
     <description>Restapp</description>
     <properties>
@@ -20,7 +20,7 @@
         <url>https://github.com/Podobuev/CICD.git</url> <!-- URL HTTP de clone do projeto -->
         <connection>scm:git:https://github.com/Podobuev/CICD.git</connection> <!-- URL HTTP de clone do projeto -->
         <developerConnection>scm:git:https://github.com/Podobuev/CICD.git</developerConnection> <!-- URL HTTP de clone do projeto -->
-        <tag>@{project.version}</tag>
+        <tag>0.0.5</tag>
     </scm>
 
 
