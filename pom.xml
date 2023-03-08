@@ -20,7 +20,7 @@
         <url>https://github.com/Podobuev/CICD.git</url> <!-- URL HTTP de clone do projeto -->
         <connection>scm:git:https://github.com/Podobuev/CICD.git</connection> <!-- URL HTTP de clone do projeto -->
         <developerConnection>scm:git:https://github.com/Podobuev/CICD.git</developerConnection> <!-- URL HTTP de clone do projeto -->
-        <tag>0.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
